@@ -45,7 +45,7 @@ const Footer: React.FC = () => {
             </ul>
           </div>
           
-          <div>
+          <div className="mb-6">
             <h4 className="text-lg font-bold mb-6">Services</h4>
             <ul className="space-y-3">
               {SERVICE_LINKS.map((service) => (
