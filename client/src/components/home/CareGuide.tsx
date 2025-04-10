@@ -13,12 +13,19 @@ const CareGuide: React.FC = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate API call
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      await fetch('/api/guide-download', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email })
+      });
       setIsSubmitted(true);
       setEmail("");
-    }, 1500);
+    } catch (error) {
+      console.error('Failed to send guide:', error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
