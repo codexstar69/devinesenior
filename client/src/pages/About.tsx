@@ -6,12 +6,7 @@ import Seo from "@/components/common/Seo";
 
 const About: React.FC = () => {
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.4 }}
-    >
+    <PageTransition>
       <Seo 
         title="About Us | Devine Senior Living"
         description="Learn about Devine Senior Living's legacy of excellence in senior care, our mission, values, and dedicated leadership team."
@@ -36,7 +31,7 @@ const About: React.FC = () => {
       
       <AboutSection />
       <CallToAction />
-    </motion.div>
+    </PageTransition>
   );
 };
 

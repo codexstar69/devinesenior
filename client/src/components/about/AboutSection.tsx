@@ -56,13 +56,13 @@ const AboutSection: React.FC = () => {
           className="text-center mb-16"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
-          variants={fadeIn()}
+          viewport={{ once: true, margin: "-100px" }}
+          variants={fadeIn(0.2)}
         >
           <h2 className="text-3xl md:text-4xl font-display font-bold text-[#5A3E36] mb-4">About Devine Senior Living</h2>
           <p className="text-lg text-[#2B2B2B]/80 max-w-2xl mx-auto">A legacy of excellence in senior care spanning over three decades.</p>
         </motion.div>
-        
+
         {/* Mission & Values */}
         <div className="mb-20">
           <div className="max-w-4xl mx-auto bg-[#5A3E36]/5 rounded-2xl p-10 shadow-soft text-center">
@@ -84,7 +84,7 @@ const AboutSection: React.FC = () => {
             >
               "To create vibrant communities where seniors thrive through personalized care, meaningful connections, and purposeful living."
             </motion.p>
-            
+
             <motion.h3 
               className="text-2xl font-bold text-[#5A3E36] mb-6"
               initial="hidden"
@@ -110,7 +110,7 @@ const AboutSection: React.FC = () => {
                 <h4 className="text-lg font-bold text-[#5A3E36] mb-2">Compassion</h4>
                 <p className="text-[#2B2B2B]/80 text-sm">We lead with empathy in every interaction, honoring each resident's unique journey.</p>
               </motion.div>
-              
+
               <motion.div 
                 className="glass rounded-xl p-6 shadow-glass"
                 initial="hidden"
@@ -126,7 +126,7 @@ const AboutSection: React.FC = () => {
                 <h4 className="text-lg font-bold text-[#5A3E36] mb-2">Excellence</h4>
                 <p className="text-[#2B2B2B]/80 text-sm">We pursue the highest standards in care, service, and community experience.</p>
               </motion.div>
-              
+
               <motion.div 
                 className="glass rounded-xl p-6 shadow-glass"
                 initial="hidden"
@@ -145,14 +145,14 @@ const AboutSection: React.FC = () => {
             </div>
           </div>
         </div>
-        
+
         {/* Timeline */}
         <div className="mb-20">
           <h3 className="text-2xl font-bold text-[#5A3E36] mb-8 text-center">Our Journey</h3>
-          
+
           <div className="max-w-4xl mx-auto relative">
             <div className="hidden md:block timeline-line"></div>
-            
+
             {timelineItems.map((item, index) => (
               <motion.div 
                 key={item.year} 
@@ -194,11 +194,11 @@ const AboutSection: React.FC = () => {
             ))}
           </div>
         </div>
-        
+
         {/* Team Section */}
         <div>
           <h3 className="text-2xl font-bold text-[#5A3E36] mb-8 text-center">Leadership Team</h3>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {teamMembers.map((member, index) => (
               <motion.div 

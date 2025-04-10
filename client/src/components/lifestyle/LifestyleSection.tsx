@@ -31,7 +31,7 @@ const LifestyleSection: React.FC = () => {
             Explore the rich experiences, activities, and amenities that make up daily life in our community.
           </p>
         </motion.div>
-        
+
         {/* Gallery Masonry */}
         <motion.div 
           className="mb-16"
@@ -88,7 +88,7 @@ const LifestyleSection: React.FC = () => {
               </div>
             </motion.div>
           </div>
-          
+
           <div className="text-center mt-8">
             <Button asChild variant="outline" className="px-8 py-3 bg-white shadow-soft rounded-full text-primary font-medium hover:bg-primary hover:text-white transition-custom">
               <Link href="/gallery">
@@ -97,7 +97,7 @@ const LifestyleSection: React.FC = () => {
             </Button>
           </div>
         </motion.div>
-        
+
         {/* Upcoming Events */}
         <div className="mb-16">
           <motion.h3 
@@ -109,7 +109,7 @@ const LifestyleSection: React.FC = () => {
           >
             Upcoming Events
           </motion.h3>
-          
+
           <motion.div 
             className="grid grid-cols-1 md:grid-cols-3 gap-6"
             initial="hidden"
@@ -143,7 +143,7 @@ const LifestyleSection: React.FC = () => {
               </motion.div>
             ))}
           </motion.div>
-          
+
           <div className="text-center mt-8">
             <Button asChild variant="outline" className="px-8 py-3 bg-white shadow-soft rounded-full text-primary font-medium hover:bg-primary hover:text-white transition-custom">
               <Link href="/calendar">
@@ -152,7 +152,7 @@ const LifestyleSection: React.FC = () => {
             </Button>
           </div>
         </div>
-        
+
         {/* Dining Experience */}
         <div>
           <motion.h3 
@@ -164,7 +164,7 @@ const LifestyleSection: React.FC = () => {
           >
             Dining Experience
           </motion.h3>
-          
+
           <div className="flex flex-col md:flex-row">
             <motion.div 
               className="md:w-1/2 md:pr-8 mb-8 md:mb-0"
@@ -192,7 +192,7 @@ const LifestyleSection: React.FC = () => {
               <p className="text-[#2B2B2B]/80 mb-6">
                 Our dining program offers chef-prepared meals that combine nutrition with exceptional taste. Each menu is crafted by our culinary team with input from nutritionists to ensure delicious options that support health and wellness.
               </p>
-              
+
               <Card className="glass rounded-xl p-6 shadow-glass mb-6">
                 <CardContent className="p-0">
                   <h5 className="font-bold text-[#5A3E36] mb-2">Sample Menu Highlights</h5>
@@ -216,7 +216,7 @@ const LifestyleSection: React.FC = () => {
                   </ul>
                 </CardContent>
               </Card>
-              
+
               <div className="flex flex-col sm:flex-row items-center gap-4">
                 <Button asChild className="px-6 py-2 bg-primary text-white rounded-full shadow-soft hover:bg-primary/90 transition-custom">
                   <Link href="/dining">
