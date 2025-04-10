@@ -4,6 +4,7 @@ import { storage } from "./storage";
 import { insertInquirySchema } from "../shared/schema";
 import { ZodError } from "zod";
 import { fromZodError } from "zod-validation-error";
+import { isAuthenticated } from "./middleware/auth";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Testimonials API
