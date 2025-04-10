@@ -77,7 +77,13 @@ export class MemStorage implements IStorage {
 
   async createUser(insertUser: InsertUser): Promise<User> {
     const id = this.userId++;
-    const user: User = { ...insertUser, id };
+    const user: User = { 
+      ...insertUser, 
+      id,
+      email: insertUser.email ?? null,
+      fullName: insertUser.fullName ?? null,
+      role: insertUser.role ?? null 
+    };
     this.users.set(id, user);
     return user;
   }
@@ -95,7 +101,14 @@ export class MemStorage implements IStorage {
   
   async createTestimonial(insertTestimonial: InsertTestimonial): Promise<Testimonial> {
     const id = this.testimonialId++;
-    const testimonial: Testimonial = { ...insertTestimonial, id };
+    const testimonial: Testimonial = { 
+      ...insertTestimonial, 
+      id,
+      image: insertTestimonial.image ?? null,
+      role: insertTestimonial.role ?? null,
+      stars: insertTestimonial.stars ?? null,
+      isActive: insertTestimonial.isActive ?? null
+    };
     this.testimonialMap.set(id, testimonial);
     return testimonial;
   }
@@ -119,7 +132,13 @@ export class MemStorage implements IStorage {
   
   async createService(insertService: InsertService): Promise<Service> {
     const id = this.serviceId++;
-    const service: Service = { ...insertService, id };
+    const service: Service = { 
+      ...insertService, 
+      id,
+      image: insertService.image ?? null,
+      isActive: insertService.isActive ?? null,
+      features: insertService.features ?? null
+    };
     this.serviceMap.set(id, service);
     return service;
   }
@@ -137,7 +156,14 @@ export class MemStorage implements IStorage {
   
   async createEvent(insertEvent: InsertEvent): Promise<Event> {
     const id = this.eventId++;
-    const event: Event = { ...insertEvent, id };
+    const event: Event = { 
+      ...insertEvent, 
+      id,
+      image: insertEvent.image ?? null,
+      isActive: insertEvent.isActive ?? null,
+      startTime: insertEvent.startTime ?? null,
+      endTime: insertEvent.endTime ?? null
+    };
     this.eventMap.set(id, event);
     return event;
   }
@@ -162,6 +188,9 @@ export class MemStorage implements IStorage {
     const inquiry: Inquiry = { 
       ...insertInquiry, 
       id, 
+      message: insertInquiry.message ?? null,
+      phone: insertInquiry.phone ?? null,
+      inquiryType: insertInquiry.inquiryType ?? null,
       createdAt: new Date() 
     };
     this.inquiryMap.set(id, inquiry);
