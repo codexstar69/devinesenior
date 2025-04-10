@@ -9,7 +9,7 @@ import About from "@/pages/About";
 import Lifestyle from "@/pages/Lifestyle";
 import Resources from "@/pages/Resources";
 import Contact from "@/pages/Contact";
-import Portal from "@/pages/Portal";
+
 import NotFound from "@/pages/not-found";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -29,7 +29,6 @@ function Router() {
         <Route path="/lifestyle" component={Lifestyle} />
         <Route path="/resources" component={Resources} />
         <Route path="/contact" component={Contact} />
-        <Route path="/portal" component={Portal} />
         <Route component={NotFound} />
       </Switch>
     </AnimatePresence>

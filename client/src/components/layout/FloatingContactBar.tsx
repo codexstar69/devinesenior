@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "wouter";
-import { Phone, MessageSquare, Calendar } from "lucide-react";
-import { PHONE_NUMBER } from "@/lib/constants";
+import { Phone, Calendar } from "lucide-react";
+import { PHONE_NUMBERS } from "@/lib/constants";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
@@ -14,23 +14,16 @@ const FloatingContactBar: React.FC = () => {
       transition={{ delay: 0.5, duration: 0.5 }}
     >
       <a 
-        href={`tel:${PHONE_NUMBER}`}
+        href={`tel:${PHONE_NUMBERS[0]}`}
         className="flex items-center justify-center w-12 h-12 bg-white rounded-full shadow-glass text-primary hover:bg-primary hover:text-white transition-custom"
         aria-label="Call us"
       >
         <Phone className="h-5 w-5" />
       </a>
-      <button 
-        className="flex items-center justify-center w-12 h-12 bg-white rounded-full shadow-glass text-primary hover:bg-primary hover:text-white transition-custom"
-        aria-label="Chat with us"
-        onClick={() => alert("Chat functionality will be implemented soon!")}
-      >
-        <MessageSquare className="h-5 w-5" />
-      </button>
       <Button asChild className="flex items-center justify-center px-5 py-3 bg-primary text-white rounded-full shadow-glass hover:bg-primary/90 transition-custom">
         <Link href="/contact">
           <a>
-            <span className="hidden md:inline mr-2">Schedule a Tour</span>
+            <span className="hidden md:inline mr-2">Contact Us</span>
             <Calendar className="h-5 w-5 md:ml-1" />
           </a>
         </Link>

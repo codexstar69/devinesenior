@@ -1,7 +1,8 @@
-export const COMPANY_NAME = "Devine Senior Living";
-export const PHONE_NUMBER = "(800) 555-1234";
-export const EMAIL = "info@devineseniorliving.com";
-export const ADDRESS = "1234 Care Lane, Greenville, SC 29601";
+export const COMPANY_NAME = "Devine Senior Assisted Living";
+export const PHONE_NUMBERS = ["845-664-0591", "346-302-7771"];
+export const EMAIL = "info@devineseniorassistedliving.com";
+export const ADDRESS = "2943 Red Oak Leaf Trail, Houston, TX 77084";
+export const WEBSITE = "devineseniorassistedliving.com";
 
 export const BUSINESS_HOURS = [
   { day: "Monday - Friday", hours: "8:00 AM - 7:00 PM" },
@@ -174,7 +175,7 @@ export const SAMPLE_EVENTS = [
 ];
 
 export const INQUIRY_TYPES = [
-  { value: "", label: "Select an option" },
+  { value: "placeholder", label: "Select an option" },
   { value: "tour", label: "Schedule a tour" },
   { value: "info", label: "Request information" },
   { value: "pricing", label: "Pricing & availability" },

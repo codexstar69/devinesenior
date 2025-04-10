@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "wouter";
 import { Facebook, Instagram, Twitter, Linkedin, MapPin, Phone, Mail } from "lucide-react";
-import { COMPANY_NAME, PHONE_NUMBER, EMAIL, ADDRESS, SITE_NAVIGATION, SERVICE_LINKS } from "@/lib/constants";
+import { COMPANY_NAME, PHONE_NUMBERS, EMAIL, ADDRESS, WEBSITE, SITE_NAVIGATION, SERVICE_LINKS } from "@/lib/constants";
 
 const Footer: React.FC = () => {
   return (
@@ -11,7 +11,7 @@ const Footer: React.FC = () => {
           <div>
             <div className="flex items-center mb-6">
               <span className="text-white font-display font-bold text-2xl">Devine</span>
-              <span className="text-white/80 font-display font-medium text-lg ml-1">Senior Living</span>
+              <span className="text-white/80 font-display font-medium text-lg ml-1">Senior Assisted Living</span>
             </div>
             <p className="mb-6">
               Creating exceptional senior living experiences through compassionate care and vibrant communities.
@@ -70,12 +70,14 @@ const Footer: React.FC = () => {
                 <MapPin className="mt-1 mr-3 h-4 w-4" />
                 <span>{ADDRESS}</span>
               </li>
-              <li className="flex items-center">
-                <Phone className="mr-3 h-4 w-4" />
-                <a href={`tel:${PHONE_NUMBER}`} className="hover:text-[#F29D35] transition-colors">
-                  {PHONE_NUMBER}
-                </a>
-              </li>
+              {PHONE_NUMBERS.map((phone, index) => (
+                <li key={index} className="flex items-center">
+                  <Phone className="mr-3 h-4 w-4" />
+                  <a href={`tel:${phone}`} className="hover:text-[#F29D35] transition-colors">
+                    {phone}
+                  </a>
+                </li>
+              ))}
               <li className="flex items-center">
                 <Mail className="mr-3 h-4 w-4" />
                 <a href={`mailto:${EMAIL}`} className="hover:text-[#F29D35] transition-colors">

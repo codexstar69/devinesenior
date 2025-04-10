@@ -13,8 +13,9 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
-import { insertInquirySchema } from "@/lib/types";
-import { PHONE_NUMBER, EMAIL, ADDRESS, BUSINESS_HOURS, INQUIRY_TYPES } from "@/lib/constants";
+// Remove schema import as we're using a local form schema
+// import { insertInquirySchema } from "../../../shared/schema";
+import { PHONE_NUMBERS, EMAIL, ADDRESS, BUSINESS_HOURS, INQUIRY_TYPES } from "@/lib/constants";
 import { fadeIn } from "@/lib/animations";
 
 const formSchema = z.object({
@@ -206,7 +207,7 @@ const ContactSection: React.FC = () => {
                       </FormControl>
                       <div className="space-y-1 leading-none">
                         <FormLabel className="text-[#2B2B2B]/80">
-                          I consent to Devine Senior Living collecting my submitted information to contact me.
+                          I consent to Devine Senior Assisted Living collecting my submitted information to contact me.
                         </FormLabel>
                         <FormMessage />
                       </div>
@@ -231,7 +232,7 @@ const ContactSection: React.FC = () => {
               <div className="w-full h-full bg-[#F7F5F2] flex items-center justify-center">
                 <img 
                   src="https://images.unsplash.com/photo-1568992687947-868a62a9f521?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032&q=80" 
-                  alt="Map location of Devine Senior Living" 
+                  alt="Map location of Devine Senior Assisted Living" 
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -245,9 +246,13 @@ const ContactSection: React.FC = () => {
                     <MapPin className="mr-3 h-5 w-5 text-primary flex-shrink-0 mt-1" />
                     <span>{ADDRESS}</span>
                   </address>
-                  <div className="flex items-center mb-2">
-                    <Phone className="text-primary mr-3 h-5 w-5" />
-                    <a href={`tel:${PHONE_NUMBER}`} className="text-primary hover:underline">{PHONE_NUMBER}</a>
+                  <div className="flex flex-col space-y-2 mb-2">
+                    {PHONE_NUMBERS.map((phone, index) => (
+                      <div key={index} className="flex items-center">
+                        <Phone className="text-primary mr-3 h-5 w-5" />
+                        <a href={`tel:${phone}`} className="text-primary hover:underline">{phone}</a>
+                      </div>
+                    ))}
                   </div>
                   <div className="flex items-center">
                     <Mail className="text-primary mr-3 h-5 w-5" />
