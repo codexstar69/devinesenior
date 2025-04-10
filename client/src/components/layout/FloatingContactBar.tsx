@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 const FloatingContactBar: React.FC = () => {
   return (
     <motion.div 
-      className="fixed bottom-8 right-8 z-40 flex flex-col space-y-3 md:space-y-0 md:flex-row md:space-x-3"
+      className="fixed bottom-6 right-6 z-50 flex flex-col space-y-4 filter drop-shadow-lg"
       initial={{ y: 100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ delay: 0.5, duration: 0.5 }}

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, Phone } from "lucide-react";
+import { Menu, X, Home, Info, Briefcase, Heart, Book, Phone, Users } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { COMPANY_NAME, SITE_NAVIGATION } from "@/lib/constants";
 import { Button } from "@/components/ui/button";
@@ -51,7 +51,7 @@ const Header: React.FC = () => {
               </div>
             </Link>
           </motion.div>
-          
+
           <motion.nav 
             className="hidden lg:flex space-x-8"
             initial="hidden"
@@ -75,7 +75,7 @@ const Header: React.FC = () => {
               </motion.div>
             ))}
           </motion.nav>
-          
+
           <motion.div 
             className="flex items-center space-x-4"
             initial="hidden"
@@ -104,7 +104,7 @@ const Header: React.FC = () => {
           </motion.div>
         </div>
       </div>
-      
+
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div 

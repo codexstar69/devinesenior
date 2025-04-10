@@ -56,7 +56,7 @@
   }
   
   .shadow-glass {
-    @apply shadow-[0_8px_32px_rgba(0,0,0,0.05)];
+    @apply shadow-[0_8px_32px_rgba(0,0,0,0.05)] transition-all duration-300 hover:shadow-[0_12px_40px_rgba(0,0,0,0.08)] hover:-translate-y-1;
   }
   
   .shadow-soft {

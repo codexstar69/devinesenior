@@ -61,11 +61,11 @@ const WhyChooseUs: React.FC = () => {
             Our approach to senior care combines luxury, compassion, and clinical excellence to create a truly distinguished living experience.
           </motion.p>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {WHY_CHOOSE_US_CARDS.map((card, index) => {
             const { ref, isVisible } = useScrollReveal();
-            
+
             return (
               <Card 
                 key={card.title}

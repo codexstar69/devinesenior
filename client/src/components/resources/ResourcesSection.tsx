@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "wouter";
-import { File, Check, ChevronRight, FileQuestion, BookOpen, Calendar, CreditCard, FileText, HeartHandshake } from "lucide-react";
+import { FileText, CheckSquare, BookOpen, CreditCard, Calendar, PhoneCall, Heart, Home } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -12,14 +12,14 @@ const ResourcesSection: React.FC = () => {
     {
       title: "Family Care Guide",
       description: "A comprehensive guide for families navigating senior care options",
-      icon: <File className="h-12 w-12 text-primary" />,
+      icon: <FileText className="h-12 w-12 text-primary" />,
       link: "/family-guide",
       color: "bg-primary/10"
     },
     {
       title: "Transition Checklist",
       description: "Step-by-step checklist for a smooth transition to senior living",
-      icon: <Check className="h-12 w-12 text-[#F29D35]" />,
+      icon: <CheckSquare className="h-12 w-12 text-[#F29D35]" />,
       link: "/transition-checklist",
       color: "bg-[#F29D35]/10"
     },
@@ -75,7 +75,7 @@ const ResourcesSection: React.FC = () => {
           <h2 className="text-3xl md:text-4xl font-display font-bold text-[#5A3E36] mb-4">Resources & Guidance</h2>
           <p className="text-lg text-[#2B2B2B]/80 max-w-2xl mx-auto">Helpful tools, information, and support for seniors and their families throughout the care journey.</p>
         </motion.div>
-        
+
         {/* Resource Cards */}
         <motion.div 
           className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16"
@@ -104,7 +104,7 @@ const ResourcesSection: React.FC = () => {
             </motion.div>
           ))}
         </motion.div>
-        
+
         {/* FAQs */}
         <motion.div 
           className="max-w-3xl mx-auto mb-16"
@@ -120,7 +120,7 @@ const ResourcesSection: React.FC = () => {
             <h3 className="text-2xl font-bold text-[#5A3E36] mb-2">Frequently Asked Questions</h3>
             <p className="text-[#2B2B2B]/80">Common questions about senior care and our services</p>
           </div>
-          
+
           <Accordion type="single" collapsible className="w-full">
             {faqs.map((faq, index) => (
               <AccordionItem key={index} value={`item-${index}`} className="border-b border-[#5A3E36]/10">
@@ -134,7 +134,7 @@ const ResourcesSection: React.FC = () => {
             ))}
           </Accordion>
         </motion.div>
-        
+
         {/* Support Services */}
         <motion.div 
           className="max-w-4xl mx-auto bg-[#5A3E36]/5 rounded-3xl p-8 md:p-12"
