@@ -93,6 +93,8 @@ export const SAMPLE_TESTIMONIALS = [
   }
 ];
 
+export const PHONE_NUMBER = "(845) 664-0591";
+
 export const SAMPLE_SERVICES = [
   {
     id: 1,

@@ -1,4 +1,3 @@
-
 import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import { useRoute, Link } from "wouter";
@@ -16,12 +15,12 @@ import PageTransition from "@/components/common/PageTransition";
 const Service: React.FC<{ slug?: string }> = ({ slug }) => {
   const [match, params] = useRoute('/services/:slug');
   const currentSlug = slug || params?.slug || "";
-  
+
   const { data: services } = useQuery<ServiceType[]>({
     queryKey: ["/api/services"],
     initialData: SAMPLE_SERVICES,
   });
-  
+
   if (!currentSlug) {
     return (
       <PageTransition>
@@ -30,7 +29,7 @@ const Service: React.FC<{ slug?: string }> = ({ slug }) => {
           description="Explore our comprehensive senior care services including assisted living, memory care, skilled nursing, rehabilitation, and respite care."
           canonical="/services"
         />
-        
+
         <section className="pt-24 pb-12 bg-[#5A3E36]/5">
           <div className="container mx-auto px-4">
             <motion.div 
@@ -45,7 +44,7 @@ const Service: React.FC<{ slug?: string }> = ({ slug }) => {
                 Comprehensive care options designed to support residents through every stage of their senior journey.
               </p>
             </motion.div>
-            
+
             <motion.div 
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
               variants={staggeredChildren(0.1)}
@@ -106,14 +105,14 @@ const Service: React.FC<{ slug?: string }> = ({ slug }) => {
             </motion.div>
           </div>
         </section>
-        
+
         <CallToAction />
       </PageTransition>
     );
   }
 
   const service = services?.find(s => s.slug === currentSlug);
-  
+
   if (!service) {
     return (
       <PageTransition>
@@ -150,7 +149,7 @@ const Service: React.FC<{ slug?: string }> = ({ slug }) => {
       </PageTransition>
     );
   }
-  
+
   return (
     <PageTransition>
       <Seo 
@@ -158,7 +157,7 @@ const Service: React.FC<{ slug?: string }> = ({ slug }) => {
         description={service.description}
         canonical={`/services/${service.slug}`}
       />
-      
+
       <section className="pt-24 pb-12">
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row gap-12">
@@ -208,7 +207,7 @@ const Service: React.FC<{ slug?: string }> = ({ slug }) => {
                   >
                     {service.description}
                   </motion.p>
-                  
+
                   <motion.h2 
                     className="text-2xl font-bold text-[#5A3E36] mb-4"
                     variants={fadeInUp()}
@@ -221,7 +220,7 @@ const Service: React.FC<{ slug?: string }> = ({ slug }) => {
                   >
                     Our {service.title.toLowerCase()} program is designed to provide comprehensive support while promoting dignity and independence. Our experienced team creates personalized care plans that adapt to changing needs, ensuring residents receive the right level of assistance at all times.
                   </motion.p>
-                  
+
                   <motion.h2 
                     className="text-2xl font-bold text-[#5A3E36] mb-4"
                     variants={fadeInUp()}
@@ -243,7 +242,7 @@ const Service: React.FC<{ slug?: string }> = ({ slug }) => {
                       </motion.li>
                     ))}
                   </motion.ul>
-                  
+
                   <motion.h2 
                     className="text-2xl font-bold text-[#5A3E36] mb-4"
                     variants={fadeInUp()}
@@ -256,7 +255,7 @@ const Service: React.FC<{ slug?: string }> = ({ slug }) => {
                   >
                     At Devine Senior Living, we believe in a holistic approach to {service.title.toLowerCase()}. Beyond addressing physical needs, we focus on emotional wellbeing, social engagement, and cognitive stimulation. Our team members are specially trained to provide compassionate care that respects each resident's unique preferences and life history.
                   </motion.p>
-                  
+
                   <motion.div 
                     className="my-10 bg-[#F7F5F2] p-6 rounded-xl border border-primary/10"
                     variants={fadeInUp()}
@@ -285,7 +284,7 @@ const Service: React.FC<{ slug?: string }> = ({ slug }) => {
                 </motion.div>
               </div>
             </motion.div>
-            
+
             <motion.div 
               className="lg:w-1/3"
               initial="hidden"
@@ -366,7 +365,7 @@ const Service: React.FC<{ slug?: string }> = ({ slug }) => {
                     </CardContent>
                   </Card>
                 </motion.div>
-                
+
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -384,9 +383,7 @@ const Service: React.FC<{ slug?: string }> = ({ slug }) => {
                       >
                         <motion.div variants={fadeInUp()}>
                           <Button asChild className="w-full bg-primary text-white rounded-full">
-                            <Link href="/contact">
-                              <a>Schedule a Tour</a>
-                            </Link>
+                            <Link href="/contact">Schedule a Tour</Link>
                           </Button>
                         </motion.div>
                         <motion.div variants={fadeInUp()}>
@@ -395,7 +392,7 @@ const Service: React.FC<{ slug?: string }> = ({ slug }) => {
                           </Button>
                         </motion.div>
                       </motion.div>
-                      
+
                       <motion.div 
                         className="mt-6 pt-6 border-t border-[#5A3E36]/10"
                         variants={fadeInUp()}
@@ -439,7 +436,7 @@ const Service: React.FC<{ slug?: string }> = ({ slug }) => {
           </div>
         </div>
       </section>
-      
+
       <CallToAction />
     </PageTransition>
   );

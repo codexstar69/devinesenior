@@ -4,6 +4,7 @@ import AboutSection from "@/components/about/AboutSection";
 import CallToAction from "@/components/common/CallToAction";
 import Seo from "@/components/common/Seo";
 import PageTransition from "@/components/common/PageTransition";
+import { fadeInUp, staggeredChildren } from "@/lib/animations";
 
 const About: React.FC = () => {
   return (
