@@ -105,11 +105,6 @@ const Footer: React.FC = () => {
           </div>
         </div>
       </div>
-      {/* Added info card with z-index and positioning */}
-      <div className="p-4 bg-white/95 rounded-lg shadow-glass absolute top-0 left-1/2 transform -translate-x-1/2 w-11/12 max-w-4xl z-10"> {/* Added z-index for stacking */}
-        {/* Add your info card content here */}
-        <p>This is an example info card</p>
-      </div>
     </footer>
   );
 };
