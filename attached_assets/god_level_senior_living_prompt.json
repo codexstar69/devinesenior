@@ -1,0 +1,159 @@
+{
+  "core_mission": "Create an end-to-end website for a senior care facility that builds deep trust, evokes compassion, drives inquiries and tour bookings, empowers families with resources, and provides backend flexibility and scalability. The site must be a visual and technical masterpiece.",
+  "site_structure": {
+    "home": [
+      "Full-screen hero with cinematic video & layered CTA",
+      "Why Choose Us cards with icons + motion on scroll",
+      "Resident testimonial slider with faces + quote overlays",
+      "Sticky floating contact bar (chat, call, schedule tour)",
+      "Quick links to key services (pill buttons)",
+      "Upcoming Events carousel",
+      "Care guide lead magnet (PDF opt-in)"
+    ],
+    "services": [
+      "Beautiful icon grid of categories (glassmorphic cards)",
+      "Individual dynamic pages for: Assisted Living, Memory Care, Respite Care, Skilled Nursing, Rehab & Wellness",
+      "Interactive pricing calculator",
+      "Feature comparison table",
+      "Downloadable PDFs",
+      "Embedded care level quiz (smart logic)"
+    ],
+    "about_us": [
+      "Timeline slider showing growth & milestones",
+      "Mission + Core Values tiles",
+      "Leadership team cards (hover bio reveal)",
+      "Facility stats + awards grid",
+      "Certifications with trust icons",
+      "Gallery: 'Life at Devine'",
+      "Community Partners section",
+      "Careers board with job listings"
+    ],
+    "lifestyle": [
+      "Masonry grid photo/video gallery (filters by type)",
+      "Live activity calendar (API-based)",
+      "Dining experience with full sample menus",
+      "Virtual facility tour (embedded 360 or video walkthrough)",
+      "Resident spotlights (profile cards + story modals)",
+      "Archived event recaps with media",
+      "Seasonal events slider"
+    ],
+    "resources": [
+      "Downloadable Family Guides (PDFs)",
+      "Transition Planning Checklist",
+      "FAQ accordion (fully editable)",
+      "Senior Care Blog (with categories)",
+      "Industry news curation",
+      "Financial guidance hub",
+      "Legal prep info (POA, wills, etc.)",
+      "Caregiver support articles"
+    ],
+    "contact": [
+      "Multi-purpose form with conditional logic",
+      "Sticky chat + call CTA",
+      "Google Maps embed with dark theme styling",
+      "Quick links to schedule tour or call",
+      "Live availability calendar",
+      "Meet a Care Advisor booking flow",
+      "Emergency info section"
+    ],
+    "family_portal": [
+      "Login/Register UI",
+      "Resident Activity Feed concept",
+      "Messaging UI to staff",
+      "Payments + Statements",
+      "Care Plan Overview UI (read-only MVP)",
+      "Shared Events Calendar",
+      "Mobile-first view priority"
+    ]
+  },
+  "tech_stack": {
+    "frontend": [
+      "React + TypeScript",
+      "Tailwind CSS",
+      "Framer Motion",
+      "Shadcn/UI or Radix",
+      "React Router or Wouter"
+    ],
+    "backend": [
+      "Node.js + Express",
+      "PostgreSQL",
+      "Cloudinary",
+      "JWT + bcrypt",
+      "Zod or Yup",
+      "Redis (optional)"
+    ],
+    "admin_panel": [
+      "React-based CMS interface",
+      "WYSIWYG for blog/resources",
+      "CRUD management",
+      "Media manager",
+      "Contact viewer",
+      "Tour scheduler"
+    ]
+  },
+  "integrations": {
+    "Google Calendar API": "Sync public events",
+    "Nodemailer or Resend": "Send form emails",
+    "Cloudinary": "Store and serve optimized media",
+    "Algolia": "Smart search",
+    "Plausible or GA4": "Analytics",
+    "Clerk/Auth.js": "Authentication (optional)",
+    "Tawk.to or Drift": "Live chat",
+    "Stripe": "Billing (optional)"
+  },
+  "design_language": {
+    "tone": "Modern, clean, empathetic",
+    "styles": [
+      "Glassmorphism & soft shadows",
+      "Rounded corners",
+      "Variable font sizes",
+      "Pill-shaped CTAs",
+      "Subtle motion",
+      "Consistent icon style",
+      "Large, legible typography"
+    ],
+    "colors": {
+      "primary": "#C05729",
+      "accent": "#F29D35",
+      "background": "#F7F5F2",
+      "headings": "#5A3E36",
+      "text": "#2B2B2B",
+      "green": "#556B2F"
+    }
+  },
+  "seo": {
+    "on_page": [
+      "Meta tags",
+      "OpenGraph",
+      "Twitter Cards",
+      "Alt text",
+      "H1/H2 hierarchy"
+    ],
+    "technical": [
+      "sitemap.xml",
+      "robots.txt",
+      "canonical URLs",
+      "lazy loading",
+      "image optimization",
+      "JSON-LD"
+    ],
+    "local_seo": [
+      "Google My Business",
+      "Structured address markup",
+      "NAP consistency",
+      "Location-based pages"
+    ]
+  },
+  "output_structure": "Detailed project file structure for frontend, backend, admin, and public folders.",
+  "agent_stages": [
+    "Scaffold architecture",
+    "Build page templates",
+    "Implement backend CMS",
+    "Connect admin panel",
+    "Add media & testimonials",
+    "Finalize UI/UX polish",
+    "Integrate SEO",
+    "Launch & optimize"
+  ],
+  "final_directive": "Make it feel like Apple meets Calm meets Devine Care. Trust, compassion, and UX elegance."
+}
