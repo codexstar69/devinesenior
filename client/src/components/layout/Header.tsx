@@ -36,7 +36,7 @@ const Header: React.FC = () => {
             <Link href="/">
               <a className="flex items-center">
                 <span className="text-primary font-display font-bold text-2xl">Devine</span>
-                <span className="text-[#5A3E36] font-display font-medium text-lg ml-1">Senior Living</span>
+                <span className="text-[#5A3E36] font-display font-medium text-lg ml-1">Senior Assisted Living</span>
               </a>
             </Link>
           </div>
@@ -55,16 +55,11 @@ const Header: React.FC = () => {
           </nav>
           
           <div className="flex items-center space-x-4">
-            <Link href="/portal">
-              <a className="hidden md:block px-4 py-2 bg-white/80 hover:bg-white rounded-full text-primary font-medium transition-custom">
-                Family Portal
-              </a>
+            <Link href="/contact">
+              <Button className="px-5 py-2 bg-primary text-white rounded-full shadow-soft hover:bg-primary/90 transition-custom">
+                Contact Us
+              </Button>
             </Link>
-            <Button asChild className="px-5 py-2 bg-primary text-white rounded-full shadow-soft hover:bg-primary/90 transition-custom">
-              <Link href="/contact">
-                <a>Schedule a Tour</a>
-              </Link>
-            </Button>
             <button 
               className="lg:hidden text-[#5A3E36]" 
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
