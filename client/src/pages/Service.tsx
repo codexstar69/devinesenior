@@ -270,14 +270,10 @@ const Service: React.FC<{ slug?: string }> = ({ slug }) => {
                     </p>
                     <div className="flex flex-wrap gap-4">
                       <Button asChild className="bg-primary text-white rounded-full">
-                        <Link href="/contact">
-                          <a>Schedule a Consultation</a>
-                        </Link>
+                        <Link href="/contact">Schedule a Consultation</Link>
                       </Button>
                       <Button asChild variant="outline" className="border-primary text-primary rounded-full">
-                        <Link href="/contact">
-                          <a>Request Information</a>
-                        </Link>
+                        <Link href="/contact">Request Information</Link>
                       </Button>
                     </div>
                   </motion.div>
