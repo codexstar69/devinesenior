@@ -5,7 +5,7 @@ import { COMPANY_NAME, PHONE_NUMBERS, EMAIL, ADDRESS, WEBSITE, SITE_NAVIGATION, 
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-[#5A3E36] py-16 text-white/90">
+    <footer className="bg-[#5A3E36] py-16 text-white/90 relative"> {/* Added relative positioning to the footer */}
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="mb-6">
@@ -31,7 +31,7 @@ const Footer: React.FC = () => {
               </a>
             </div>
           </div>
-          
+
           <div className="mb-6">
             <h4 className="text-lg font-bold mb-6">Quick Links</h4>
             <ul className="space-y-3">
@@ -44,7 +44,7 @@ const Footer: React.FC = () => {
               ))}
             </ul>
           </div>
-          
+
           <div className="mb-6">
             <h4 className="text-lg font-bold mb-6">Services</h4>
             <ul className="space-y-3">
@@ -62,7 +62,7 @@ const Footer: React.FC = () => {
               </li>
             </ul>
           </div>
-          
+
           <div className="mb-6">
             <h4 className="text-lg font-bold mb-6">Contact</h4>
             <ul className="space-y-4">
@@ -87,7 +87,7 @@ const Footer: React.FC = () => {
             </ul>
           </div>
         </div>
-        
+
         <div className="pt-8 mt-8 border-t border-white/20 flex flex-col md:flex-row justify-between items-center text-sm text-white/70">
           <div>
             &copy; {new Date().getFullYear()} {COMPANY_NAME}. All rights reserved.
@@ -104,6 +104,11 @@ const Footer: React.FC = () => {
             </Link>
           </div>
         </div>
+      </div>
+      {/* Added info card with z-index and positioning */}
+      <div className="p-4 bg-white/95 rounded-lg shadow-glass absolute top-0 left-1/2 transform -translate-x-1/2 w-11/12 max-w-4xl z-10"> {/* Added z-index for stacking */}
+        {/* Add your info card content here */}
+        <p>This is an example info card</p>
       </div>
     </footer>
   );
