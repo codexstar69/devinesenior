@@ -5,6 +5,7 @@ import { insertInquirySchema } from "../shared/schema";
 import { ZodError } from "zod";
 import { fromZodError } from "zod-validation-error";
 import { isAuthenticated } from "./middleware/auth";
+import { sendEmail } from "./mail";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Testimonials API
@@ -18,7 +19,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   });
 
   // Services API
-  app.get("/api/services", isAuthenticated, async (req, res) => {
+  app.get("/api/services", async (req, res) => {
     try {
       const services = await storage.getServices();
       res.json(services);
@@ -51,25 +52,35 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
   // Contact form submission
   app.post("/api/inquiries", async (req, res) => {
+    let inquiry;
     try {
       const inquiryData = insertInquirySchema.parse(req.body);
-      const inquiry = await storage.createInquiry(inquiryData);
+      inquiry = await storage.createInquiry(inquiryData);
+
+      try {
+        // Send confirmation email to user
+        await sendEmail({
+          to: inquiryData.email,
+          subject: 'Thank you for contacting Devine Senior Living',
+          text: `Dear ${inquiryData.name},\n\nThank you for reaching out to us. We have received your inquiry and will get back to you shortly.\n\nBest regards,\nDevine Senior Living Team`,
+          html: `<p>Dear ${inquiryData.name},</p><p>Thank you for reaching out to us. We have received your inquiry and will get back to you shortly.</p><p>Best regards,<br>Devine Senior Living Team</p>`
+        });
+      } catch (emailError) {
+        console.error('Failed to send confirmation email:', emailError);
+      }
+
+      try {
+        // Send notification to admin
+        await sendEmail({
+          to: process.env.ADMIN_EMAIL || 'admin@example.com',
+          subject: 'New Contact Form Submission',
+          text: `New inquiry from ${inquiryData.name}\nEmail: ${inquiryData.email}\nPhone: ${inquiryData.phone || 'N/A'}\nMessage: ${inquiryData.message || 'N/A'}`,
+          html: `<h3>New inquiry from ${inquiryData.name}</h3><p>Email: ${inquiryData.email}</p><p>Phone: ${inquiryData.phone || 'N/A'}</p><p>Message: ${inquiryData.message || 'N/A'}</p>`
+        });
+      } catch (adminEmailError) {
+        console.error('Failed to send admin notification email:', adminEmailError);
+      }
       
-      await sendEmail({
-        to: inquiryData.email,
-        subject: 'Thank you for contacting Devine Senior Living',
-        text: `Dear ${inquiryData.name},\n\nThank you for reaching out to us. We have received your inquiry and will get back to you shortly.\n\nBest regards,\nDevine Senior Living Team`,
-        html: `<p>Dear ${inquiryData.name},</p><p>Thank you for reaching out to us. We have received your inquiry and will get back to you shortly.</p><p>Best regards,<br>Devine Senior Living Team</p>`
-      });
-
-      // Send notification to admin
-      await sendEmail({
-        to: process.env.ADMIN_EMAIL || 'admin@devineseniorliving.com',
-        subject: 'New Contact Form Submission',
-        text: `New inquiry from ${inquiryData.name}\nEmail: ${inquiryData.email}\nPhone: ${inquiryData.phone}\nMessage: ${inquiryData.message}`,
-        html: `<h3>New inquiry from ${inquiryData.name}</h3><p>Email: ${inquiryData.email}</p><p>Phone: ${inquiryData.phone}</p><p>Message: ${inquiryData.message}</p>`
-      });
-
       res.status(201).json(inquiry);
     } catch (error) {
       if (error instanceof ZodError) {
@@ -78,6 +89,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
           errors: fromZodError(error).message 
         });
       }
+      console.error('Failed to process inquiry:', error);
       res.status(500).json({ message: "Failed to submit inquiry" });
     }
   });
@@ -89,21 +101,25 @@ export async function registerRoutes(app: Express): Promise<Server> {
         return res.status(400).json({ message: "Email is required" });
       }
 
-      await sendEmail({
-        to: email,
-        subject: 'Your Senior Care Options Guide',
-        text: 'Thank you for requesting our Senior Care Options Guide. Please find it attached.',
-        html: `
-          <h2>Thank you for requesting our Senior Care Options Guide</h2>
-          <p>You can download your guide using the link below:</p>
-          <p><a href="${process.env.GUIDE_PDF_URL || '#'}">Download Senior Care Guide</a></p>
-          <p>If you have any questions, please don't hesitate to contact us.</p>
-        `
-      });
-
-      res.status(200).json({ message: "Guide sent successfully" });
+      try {
+        await sendEmail({
+          to: email,
+          subject: 'Your Senior Care Options Guide',
+          text: 'Thank you for requesting our Senior Care Options Guide. Please find the download link below.',
+          html: `
+            <h2>Thank you for requesting our Senior Care Options Guide</h2>
+            <p>You can download your guide using the link below:</p>
+            <p><a href="${process.env.GUIDE_PDF_URL || '#' /* Add a more robust fallback or error if missing */}">Download Senior Care Guide</a></p>
+            <p>If you have any questions, please don't hesitate to contact us.</p>
+          `
+        });
+        res.status(200).json({ message: "Guide email sent successfully" });
+      } catch (emailError) {
+        console.error('Error sending guide email:', emailError);
+        res.status(500).json({ message: "Failed to send guide email" });
+      }
     } catch (error) {
-      console.error('Error sending guide:', error);
+      console.error('Error processing guide download request:', error);
       res.status(500).json({ message: "Failed to send guide" });
     }
   });

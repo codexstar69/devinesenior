@@ -19,6 +19,11 @@ const Home: React.FC = () => {
         canonical="/"
       />
       
+      {/* Test message to verify changes */}
+      <div className="bg-green-500 text-white p-4 text-center">
+        This is a test message to verify the website is working correctly!
+      </div>
+      
       <Hero />
       <QuickLinks />
       <WhyChooseUs />

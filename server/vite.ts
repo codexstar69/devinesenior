@@ -22,7 +22,12 @@ export function log(message: string, source = "express") {
 export async function setupVite(app: Express, server: Server) {
   const serverOptions = {
     middlewareMode: true,
-    hmr: { server },
+    hmr: { 
+      server,
+      clientPort: 5001, // Use the port where Express is actually running
+      path: "/@hmr",  // Explicit HMR path
+      timeout: 10000   // Longer timeout for reconnection attempts
+    },
     allowedHosts: true,
   };
 
@@ -32,8 +37,12 @@ export async function setupVite(app: Express, server: Server) {
     customLogger: {
       ...viteLogger,
       error: (msg, options) => {
+        // Log but don't exit on errors, as this can cause disconnect issues
         viteLogger.error(msg, options);
-        process.exit(1);
+        // Only exit on critical errors that contain specific text
+        if (msg.includes('Cannot start server') || msg.includes('Plugin Error')) {
+          process.exit(1);
+        }
       },
     },
     server: serverOptions,
@@ -43,6 +52,11 @@ export async function setupVite(app: Express, server: Server) {
   app.use(vite.middlewares);
   app.use("*", async (req, res, next) => {
     const url = req.originalUrl;
+
+    // Skip API routes
+    if (url.startsWith('/api/')) {
+      return next();
+    }
 
     try {
       const clientTemplate = path.resolve(
@@ -58,10 +72,19 @@ export async function setupVite(app: Express, server: Server) {
         `src="/src/main.tsx"`,
         `src="/src/main.tsx?v=${nanoid()}"`,
       );
+      
+      // Transform HTML to add Vite HMR
       const page = await vite.transformIndexHtml(url, template);
-      res.status(200).set({ "Content-Type": "text/html" }).end(page);
+      res.status(200).set({ 
+        "Content-Type": "text/html",
+        // Ensure no caching for development
+        "Cache-Control": "no-cache, no-store, must-revalidate",
+        "Pragma": "no-cache",
+        "Expires": "0"
+      }).end(page);
     } catch (e) {
       vite.ssrFixStacktrace(e as Error);
+      console.error(`Error in Vite SSR:`, e);
       next(e);
     }
   });
