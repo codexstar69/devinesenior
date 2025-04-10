@@ -22,10 +22,8 @@ const FloatingContactBar: React.FC = () => {
       </a>
       <Button asChild className="flex items-center justify-center px-5 py-3 bg-primary text-white rounded-full shadow-glass hover:bg-primary/90 transition-custom">
         <Link href="/contact">
-          <a>
-            <span className="hidden md:inline mr-2">Contact Us</span>
-            <Calendar className="h-5 w-5 md:ml-1" />
-          </a>
+          <span className="hidden md:inline mr-2">Contact Us</span>
+          <Calendar className="h-5 w-5 md:ml-1" />
         </Link>
       </Button>
     </motion.div>

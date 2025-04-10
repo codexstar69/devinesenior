@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "wouter";
-import { FileText, CheckSquare, BookOpen, CreditCard, Calendar, PhoneCall, Heart, Home } from "lucide-react";
+import { FileText, CheckSquare, BookOpen, CreditCard, Calendar, PhoneCall, Heart, Home, ChevronRight, FileQuestion, HeartHandshake, Check } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
