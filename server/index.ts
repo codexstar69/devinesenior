@@ -9,6 +9,9 @@ import cors from "cors";
 
 const app = express();
 
+// Enable trust proxy for rate limiter
+app.set('trust proxy', 1);
+
 // Security middleware
 app.use(helmet());
 app.use(cors({

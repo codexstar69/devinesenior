@@ -3,12 +3,12 @@ import { motion } from "framer-motion";
 import AboutSection from "@/components/about/AboutSection";
 import CallToAction from "@/components/common/CallToAction";
 import Seo from "@/components/common/Seo";
-import PageTransition from "../components/common/PageTransition";
+// import PageTransition from "../components/common/PageTransition"; //Removed PageTransition import
 import { fadeInUp, staggeredChildren } from "@/lib/animations";
 
 const About: React.FC = () => {
   return (
-    <PageTransition>
+    <div className="min-h-screen bg-background"> {/*Replaced PageTransition with div*/}
       <Seo 
         title="About Us | Devine Senior Living"
         description="Learn about Devine Senior Living's legacy of excellence in senior care, our mission, values, and dedicated leadership team."
@@ -33,7 +33,7 @@ const About: React.FC = () => {
 
       <AboutSection />
       <CallToAction />
-    </PageTransition>
+    </div>
   );
 };
 
