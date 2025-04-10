@@ -38,7 +38,7 @@ const Footer: React.FC = () => {
               {SITE_NAVIGATION.map((item) => (
                 <li key={item.name}>
                   <Link href={item.href}>
-                    <a className="hover:text-[#F29D35] transition-colors">{item.name}</a>
+                    <span className="hover:text-[#F29D35] transition-colors cursor-pointer">{item.name}</span>
                   </Link>
                 </li>
               ))}
@@ -51,13 +51,13 @@ const Footer: React.FC = () => {
               {SERVICE_LINKS.map((service) => (
                 <li key={service.name}>
                   <Link href={service.href}>
-                    <a className="hover:text-[#F29D35] transition-colors">{service.name}</a>
+                    <span className="hover:text-[#F29D35] transition-colors cursor-pointer">{service.name}</span>
                   </Link>
                 </li>
               ))}
               <li>
                 <Link href="/services/wellness-programs">
-                  <a className="hover:text-[#F29D35] transition-colors">Wellness Programs</a>
+                  <span className="hover:text-[#F29D35] transition-colors cursor-pointer">Wellness Programs</span>
                 </Link>
               </li>
             </ul>
@@ -94,13 +94,13 @@ const Footer: React.FC = () => {
           </div>
           <div className="mt-4 md:mt-0 flex space-x-4">
             <Link href="/privacy">
-              <a className="hover:text-white transition-colors">Privacy Policy</a>
+              <span className="hover:text-white transition-colors cursor-pointer">Privacy Policy</span>
             </Link>
             <Link href="/terms">
-              <a className="hover:text-white transition-colors">Terms of Service</a>
+              <span className="hover:text-white transition-colors cursor-pointer">Terms of Service</span>
             </Link>
             <Link href="/accessibility">
-              <a className="hover:text-white transition-colors">Accessibility</a>
+              <span className="hover:text-white transition-colors cursor-pointer">Accessibility</span>
             </Link>
           </div>
         </div>

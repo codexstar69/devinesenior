@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { COMPANY_NAME, SITE_NAVIGATION } from "@/lib/constants";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { fadeIn } from "@/lib/animations";
+import { fadeIn, fadeInUp, staggeredChildren } from "@/lib/animations";
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -34,22 +34,22 @@ const Header: React.FC = () => {
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div className="flex items-center">
             <Link href="/">
-              <a className="flex items-center">
+              <div className="flex items-center cursor-pointer">
                 <span className="text-primary font-display font-bold text-2xl">Devine</span>
                 <span className="text-[#5A3E36] font-display font-medium text-lg ml-1">Senior Assisted Living</span>
-              </a>
+              </div>
             </Link>
           </div>
           
           <nav className="hidden lg:flex space-x-8">
             {SITE_NAVIGATION.map((item) => (
               <Link href={item.href} key={item.name}>
-                <a className={cn(
-                  "text-[#5A3E36] hover:text-primary font-medium transition-custom",
+                <div className={cn(
+                  "text-[#5A3E36] hover:text-primary font-medium transition-custom cursor-pointer",
                   location === item.href && "text-primary"
                 )}>
                   {item.name}
-                </a>
+                </div>
               </Link>
             ))}
           </nav>
@@ -82,15 +82,15 @@ const Header: React.FC = () => {
             <div className="px-4 py-5 space-y-4">
               {SITE_NAVIGATION.map((item) => (
                 <Link href={item.href} key={item.name}>
-                  <a 
+                  <div 
                     className={cn(
-                      "block text-[#5A3E36] font-medium px-3 py-2 rounded-lg hover:bg-white/50 transition-custom",
+                      "block text-[#5A3E36] font-medium px-3 py-2 rounded-lg hover:bg-white/50 transition-custom cursor-pointer",
                       location === item.href && "text-primary bg-white/30"
                     )}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {item.name}
-                  </a>
+                  </div>
                 </Link>
               ))}
             </div>
