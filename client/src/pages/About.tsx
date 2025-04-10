@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import AboutSection from "@/components/about/AboutSection";
 import CallToAction from "@/components/common/CallToAction";
 import Seo from "@/components/common/Seo";
+import PageTransition from "@/components/common/PageTransition";
 
 const About: React.FC = () => {
   return (
