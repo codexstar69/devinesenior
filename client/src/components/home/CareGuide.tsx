@@ -9,7 +9,7 @@ const CareGuide: React.FC = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [email, setEmail] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     
