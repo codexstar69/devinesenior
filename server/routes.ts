@@ -17,7 +17,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   });
 
   // Services API
-  app.get("/api/services", async (req, res) => {
+  app.get("/api/services", isAuthenticated, async (req, res) => {
     try {
       const services = await storage.getServices();
       res.json(services);
