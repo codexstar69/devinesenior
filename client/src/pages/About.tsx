@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import AboutSection from "@/components/about/AboutSection";
 import CallToAction from "@/components/common/CallToAction";
 import Seo from "@/components/common/Seo";
-import PageTransition from "@/components/common/PageTransition";
+import PageTransition from "../components/common/PageTransition";
 import { fadeInUp, staggeredChildren } from "@/lib/animations";
 
 const About: React.FC = () => {
@@ -14,7 +14,7 @@ const About: React.FC = () => {
         description="Learn about Devine Senior Living's legacy of excellence in senior care, our mission, values, and dedicated leadership team."
         canonical="/about"
       />
-      
+
       <section className="pt-24 pb-12 bg-[#5A3E36]/5">
         <div className="container mx-auto px-4">
           <motion.div 
@@ -30,7 +30,7 @@ const About: React.FC = () => {
           </motion.div>
         </div>
       </section>
-      
+
       <AboutSection />
       <CallToAction />
     </PageTransition>
