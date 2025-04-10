@@ -32,41 +32,76 @@ const Header: React.FC = () => {
     )}>
       <div className="glass py-3 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <div className="flex items-center">
+          <motion.div 
+            className="flex items-center"
+            initial="hidden"
+            animate="visible"
+            variants={fadeInUp(0.1)}
+          >
             <Link href="/">
               <div className="flex items-center cursor-pointer">
-                <span className="text-primary font-display font-bold text-2xl">Devine</span>
+                <motion.span 
+                  className="text-primary font-display font-bold text-2xl"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  Devine
+                </motion.span>
                 <span className="text-[#5A3E36] font-display font-medium text-lg ml-1">Senior Assisted Living</span>
               </div>
             </Link>
-          </div>
+          </motion.div>
           
-          <nav className="hidden lg:flex space-x-8">
-            {SITE_NAVIGATION.map((item) => (
-              <Link href={item.href} key={item.name}>
-                <div className={cn(
-                  "text-[#5A3E36] hover:text-primary font-medium transition-custom cursor-pointer",
-                  location === item.href && "text-primary"
-                )}>
-                  {item.name}
-                </div>
-              </Link>
+          <motion.nav 
+            className="hidden lg:flex space-x-8"
+            initial="hidden"
+            animate="visible"
+            variants={staggeredChildren()}
+          >
+            {SITE_NAVIGATION.map((item, index) => (
+              <motion.div key={item.name} variants={fadeInUp(0.1 * (index + 1))}>
+                <Link href={item.href}>
+                  <motion.div 
+                    className={cn(
+                      "text-[#5A3E36] hover:text-primary font-medium transition-custom cursor-pointer",
+                      location === item.href && "text-primary"
+                    )}
+                    whileHover={{ y: -2 }}
+                    transition={{ type: "spring", stiffness: 400 }}
+                  >
+                    {item.name}
+                  </motion.div>
+                </Link>
+              </motion.div>
             ))}
-          </nav>
+          </motion.nav>
           
-          <div className="flex items-center space-x-4">
+          <motion.div 
+            className="flex items-center space-x-4"
+            initial="hidden"
+            animate="visible"
+            variants={fadeInUp(0.2)}
+          >
             <Link href="/contact">
-              <Button className="px-5 py-2 bg-primary text-white rounded-full shadow-soft hover:bg-primary/90 transition-custom">
-                Contact Us
-              </Button>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+              >
+                <Button className="px-5 py-2 bg-primary text-white rounded-full shadow-soft hover:bg-primary/90 transition-custom">
+                  Contact Us
+                </Button>
+              </motion.div>
             </Link>
-            <button 
+            <motion.button 
               className="lg:hidden text-[#5A3E36]" 
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              whileHover={{ scale: 1.1, rotate: 5 }}
+              whileTap={{ scale: 0.9 }}
             >
               <Menu className="h-6 w-6" />
-            </button>
-          </div>
+            </motion.button>
+          </motion.div>
         </div>
       </div>
       
@@ -79,21 +114,30 @@ const Header: React.FC = () => {
             exit="hidden"
             variants={fadeIn()}
           >
-            <div className="px-4 py-5 space-y-4">
-              {SITE_NAVIGATION.map((item) => (
-                <Link href={item.href} key={item.name}>
-                  <div 
-                    className={cn(
-                      "block text-[#5A3E36] font-medium px-3 py-2 rounded-lg hover:bg-white/50 transition-custom cursor-pointer",
-                      location === item.href && "text-primary bg-white/30"
-                    )}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {item.name}
-                  </div>
-                </Link>
+            <motion.div 
+              className="px-4 py-5 space-y-4"
+              variants={staggeredChildren(0.05)}
+              initial="hidden"
+              animate="visible"
+            >
+              {SITE_NAVIGATION.map((item, index) => (
+                <motion.div key={item.name} variants={fadeInUp(0.05 * index)}>
+                  <Link href={item.href}>
+                    <motion.div 
+                      className={cn(
+                        "block text-[#5A3E36] font-medium px-3 py-2 rounded-lg hover:bg-white/50 transition-custom cursor-pointer",
+                        location === item.href && "text-primary bg-white/30"
+                      )}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      whileHover={{ x: 5 }}
+                      transition={{ type: "spring", stiffness: 300 }}
+                    >
+                      {item.name}
+                    </motion.div>
+                  </Link>
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
