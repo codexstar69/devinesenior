@@ -5,10 +5,10 @@ import { COMPANY_NAME, PHONE_NUMBERS, EMAIL, ADDRESS, WEBSITE, SITE_NAVIGATION, 
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-[#5A3E36] py-12 text-white/90">
+    <footer className="bg-[#5A3E36] py-16 text-white/90">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div>
+          <div className="mb-6">
             <div className="flex items-center mb-6">
               <span className="text-white font-display font-bold text-2xl">Devine</span>
               <span className="text-white/80 font-display font-medium text-lg ml-1">Senior Assisted Living</span>
@@ -32,7 +32,7 @@ const Footer: React.FC = () => {
             </div>
           </div>
           
-          <div>
+          <div className="mb-6">
             <h4 className="text-lg font-bold mb-6">Quick Links</h4>
             <ul className="space-y-3">
               {SITE_NAVIGATION.map((item) => (
@@ -63,23 +63,23 @@ const Footer: React.FC = () => {
             </ul>
           </div>
           
-          <div>
+          <div className="mb-6">
             <h4 className="text-lg font-bold mb-6">Contact</h4>
-            <ul className="space-y-3">
+            <ul className="space-y-4">
               <li className="flex items-start">
-                <MapPin className="mt-1 mr-3 h-4 w-4" />
+                <MapPin className="mt-1 mr-3 h-4 w-4 flex-shrink-0" />
                 <span>{ADDRESS}</span>
               </li>
               {PHONE_NUMBERS.map((phone, index) => (
                 <li key={index} className="flex items-center">
-                  <Phone className="mr-3 h-4 w-4" />
+                  <Phone className="mr-3 h-4 w-4 flex-shrink-0" />
                   <a href={`tel:${phone}`} className="hover:text-[#F29D35] transition-colors">
                     {phone}
                   </a>
                 </li>
               ))}
               <li className="flex items-center">
-                <Mail className="mr-3 h-4 w-4" />
+                <Mail className="mr-3 h-4 w-4 flex-shrink-0" />
                 <a href={`mailto:${EMAIL}`} className="hover:text-[#F29D35] transition-colors">
                   {EMAIL}
                 </a>

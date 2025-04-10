@@ -93,14 +93,6 @@ const Header: React.FC = () => {
                   </a>
                 </Link>
               ))}
-              <Link href="/portal">
-                <a 
-                  className="block text-[#5A3E36] font-medium px-3 py-2 rounded-lg hover:bg-white/50 transition-custom"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Family Portal
-                </a>
-              </Link>
             </div>
           </motion.div>
         )}
